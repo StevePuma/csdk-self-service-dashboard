@@ -1,4 +1,4 @@
-## Sample React App with Sisense Compose SDK
+## Sample React App with Sisense Self Service Via Compose SDK
 
 
 ![SelfServiceExample](https://github.com/StevePuma/csdk-self-service-dashboard/assets/102320035/56543352-1430-4e4c-aa5b-ab03f4551b63)
