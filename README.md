@@ -2,6 +2,9 @@
 
 
 ![SelfServiceExample](https://github.com/StevePuma/csdk-self-service-dashboard/assets/102320035/56543352-1430-4e4c-aa5b-ab03f4551b63)
+![CodeWalkthrough](https://github.com/StevePuma/csdk-self-service-dashboard/assets/102320035/207bde92-f36f-4a1e-8415-1826e13e6a52)
+
+
 
 This repository provides a sample React application using a TypeScript template. It showcases how to create a self-service drag-and-drop frontend using the Sisense Compose SDK to fetch widgets from the Sisense Fusion Embed platform and dynamically update them.
 
