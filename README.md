@@ -1,46 +1,125 @@
-# Getting Started with Create React App
+## Sample React App with Sisense Compose SDK
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+![SelfServiceExample](https://github.com/StevePuma/csdk-self-service-dashboard/assets/102320035/56543352-1430-4e4c-aa5b-ab03f4551b63)
 
-In the project directory, you can run:
+This repository provides a sample React application using a TypeScript template. It showcases how to create a self-service drag-and-drop frontend using the Sisense Compose SDK to fetch widgets from the Sisense Fusion Embed platform and dynamically update them.
 
-### `npm start`
+### Description
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This template is intended for current Sisense customers. However, if you are trialing Sisense, you can use your personal API token and the provided sample e-commerce dashboard ID in the setup. The application demonstrates how to create a customizable dashboard by fetching existing Sisense widgets and allowing the user to control their placement and appearance.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Features
 
-### `npm test`
+- **Self-service drag-and-drop frontend**
+- **Dynamic widget updates**
+- **Integration with Sisense Fusion Embed platform**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Components Used
 
-### `npm run build`
+- **useGetDashboardModel** hook
+- **useGetWidgetModel** hook
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+These methods fetch existing Sisense widgets from a dashboard and allow the developer to control their placement and appearance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Packages Used
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **React**
+- **TypeScript**
+- **@mui/material**
+- **react-grid-layout**
+- **html2canvas**
+- **@mui/icons-material**
+- **@sisense/sdk-ui**
+- **@sisense/sdk-data**
 
-### `npm run eject`
+### Setup Instructions
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Follow these steps to set up the application on your local machine.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Prerequisites
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Node.js
+- npm 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Installation
 
-## Learn More
+1. **Clone the repository:**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+git clone https://github.com/yourusername/sample-react-sisense-app.git
+cd sample-react-sisense-app
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. **Install dependencies:**
+
+```bash
+npm install
+
+3. **Update configuration:**
+
+- **Update Dashboard IDs:**
+  - In `App.tsx`, update the `dashboardOid` to your specific dashboard ID.
+  - In `ChartLibrary.tsx`, ensure the dashboard ID is also updated.
+
+- **Set Sisense Server URL and API Token:**
+  - In `index.tsx`, add your Sisense server URL and API token to the `SisenseContextProvider`.
+
+```tsx
+// index.tsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import { SisenseContextProvider } from '@sisense/sdk-ui';
+
+// Replace with your Sisense server URL and API token
+const serverUrl = 'YOUR_SISENSE_SERVER_URL';
+const apiToken = 'YOUR_API_TOKEN';
+
+ReactDOM.render(
+  <SisenseContextProvider
+    server={serverUrl}
+    token={apiToken}
+  >
+    <App />
+  </SisenseContextProvider>,
+  document.getElementById('root')
+);
+```
+
+4. **Run the application:**
+
+```bash
+npm start
+
+### How It Works
+
+The application consists of the following main components:
+
+#### 1. `App.tsx`
+
+- **Handles the main layout and logic for adding/removing widgets.**
+- **Manages the state for the chart library and selected charts.**
+- **Provides options to export the dashboard to a PDF using `html2canvas`.**
+
+#### 2. `ChartLibrary.tsx`
+
+- **Provides a list of available charts that users can select from.**
+- **Uses the `useGetDashboardModel` and `useGetWidgetModel` hooks to fetch data from Sisense.**
+
+#### 3. `index.tsx`
+
+- **Sets up the `SisenseContextProvider` with the server URL and API token.**
+- **Renders the main `App` component.**
+
+### Exploring Further
+
+To get started quickly with Sisense, visit the [Sisense documentation](https://sisense.dev/guides/sdk/getting-started/).
+
+For more details on the methods used, refer to the following guides:
+- **useGetDashboardModel hook**: [Sisense Documentation](https://sisense.dev/guides/sdk/modules/sdk-ui/fusion-embed/function.useGetDashboardModels.html)
+- **useGetWidgetModel hook**: [Sisense Documentation](https://sisense.dev/guides/sdk/modules/sdk-ui/fusion-embed/function.useGetWidgetModels.html)
+
+### Conclusion
+
+This sample application provides a foundation for creating a self-service drag-and-drop dashboard using Sisense Compose SDK. By following the setup instructions and exploring the code, you can customize and extend the application to fit your specific needs. Happy coding!
